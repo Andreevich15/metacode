@@ -1,0 +1,188 @@
+/* ====== NAV BUTTONS ====== */
+.nav-btn {
+    position: relative;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+    transform: translateY(-2px);
+}
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* ====== DARK MODE ====== */
+body.dark {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #e0e0e0;
+}
+body.dark nav {
+    background: rgba(20, 20, 20, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark .nav-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+body.dark .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+}
+body.dark .nav-btn.active {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+}
+/* Цвет текста карточек в тёмной теме */
+body.dark .card h2,
+body.dark .card p {
+    color: #fff !important;
+}
+
+
+/* ====== CARD ANIMATIONS ====== */
+.card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.7s ease;
+}
+.card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* DARK MODE cards */
+body.dark .card {
+    background-color: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+body.dark .card:hover {
+    background-color: rgba(255,255,255,0.15);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+}
+
+/* ====== DARK MODE GLOBALS ====== */
+body.dark {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #0a0a0a);
+    background-size: 400% 400%;
+    color: #e0e0e0;
+    animation: darkPulse 12s ease-in-out infinite;
+}
+
+@keyframes darkPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Меню при тёмной теме */
+body.dark nav {
+    background: rgba(25, 25, 25, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.08);
+}
+
+/* Активная кнопка в тёмной теме */
+body.dark .nav-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* ====== CARD EFFECTS ====== */
+.card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.7s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.15);
+}
+
+/* ====== CARD GLOW IN DARK MODE ====== */
+body.dark .card {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: all 0.5s ease;
+}
+
+body.dark .card:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+}
+
+/* ====== NEON GLOW ANIMATION ====== */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+                    0 0 20px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                    0 0 35px rgba(0, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+                    0 0 20px rgba(0, 255, 255, 0.2);
+    }
+}
+
+/* Акцент неоновой линии под активной кнопкой */
+#glow-line {
+    animation: neonPulse 3s ease-in-out infinite;
+}
+
+/* ======= WORKING THEME TOGGLE ======= */
+
+/* фоновая дорожка переключателя */
+.toggle-bg {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* подвижный ползунок */
+.toggle-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* состояние checked */
+#theme-toggle:checked + .toggle-bg {
+  background-color: #3b82f6;
+}
+
+#theme-toggle:checked + .toggle-bg + .toggle-dot {
+  transform: translateX(20px);
+}

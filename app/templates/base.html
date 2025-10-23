@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MetaCode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="bg-gradient-to-br from-gray-200 via-gray-100 to-white min-h-screen font-sans text-gray-800">
+
+<!-- Glass Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/30 border-b border-white/40 shadow-sm transition-all duration-500">
+    <div class="relative flex justify-center items-center py-3 space-x-4" id="nav-container">
+        <!-- Навигация -->
+        <a href="/" class="nav-btn {% if request.url.path == '/' %}active{% endif %}">Главная</a>
+        <a href="/programming" class="nav-btn {% if '/programming' in request.url.path %}active{% endif %}">Программирование</a>
+        <a href="/design" class="nav-btn {% if '/design' in request.url.path %}active{% endif %}">Проектирование</a>
+        <a href="/ai" class="nav-btn {% if '/ai' in request.url.path %}active{% endif %}">ИИ</a>
+        <a href="/dev" class="nav-btn {% if '/dev' in request.url.path %}active{% endif %}">Разработка</a>
+
+        <!-- Glow линия -->
+        <div id="glow-line" class="absolute bottom-0 h-[3px] bg-white rounded-full shadow-[0_0_8px_#ffffff80] transition-all duration-300"></div>
+
+        <!-- Переключатель темы -->
+        <div class="absolute right-6 top-3 flex items-center space-x-2">
+        <label for="theme-toggle" class="flex items-center cursor-pointer">
+            <span class="text-sm text-white mr-2 font-medium">🌞</span>
+            <div class="relative">
+            <input type="checkbox" id="theme-toggle" class="sr-only" />
+            <div class="toggle-bg w-10 h-5 bg-gray-400 rounded-full transition-colors duration-300"></div>
+            <div class="toggle-dot absolute top-[2px] left-[2px] w-4 h-4 bg-white rounded-full transition-all duration-300"></div>
+            </div>
+            <span class="text-sm text-white ml-2 font-medium">🌙</span>
+        </label>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Page Content -->
+    <main class="max-w-7xl mx-auto pt-24 pb-16 px-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
