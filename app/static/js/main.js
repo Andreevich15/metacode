@@ -1,51 +1,35 @@
-// === Анимация карточек ===
-window.addEventListener("scroll", revealCards);
-window.addEventListener("load", () => {
-    revealCards();
-    moveGlowLine();
-    initTheme();
-});
+const htmlRoot = document.documentElement;
+const body = document.body;
+const themeToggle = document.getElementById("theme-toggle");
 
-function revealCards() {
-    const cards = document.querySelectorAll(".card");
-    const windowHeight = window.innerHeight;
-    cards.forEach((card, i) => {
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < windowHeight - 50) {
-            setTimeout(() => {
-                card.classList.add("visible");
-            }, i * 100);
-        }
-    });
+if (themeToggle) {
+  themeToggle.addEventListener("change", () => {
+    const isDark = themeToggle.checked;
+    body.classList.toggle("dark-mode", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-mode");
+    themeToggle.checked = true;
+  }
 }
 
-// === Glow Line ===
-function moveGlowLine() {
-    const activeBtn = document.querySelector(".nav-btn.active");
-    const glowLine = document.getElementById("glow-line");
+// === Мобильное меню ===
+const mobileBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
 
-    if (activeBtn && glowLine) {
-        const rect = activeBtn.getBoundingClientRect();
-        const containerRect = document.getElementById("nav-container").getBoundingClientRect();
+if (mobileBtn && mobileMenu) {
+  mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    document.body.classList.toggle("overflow-hidden");
+  });
 
-        glowLine.style.width = rect.width + "px";
-        glowLine.style.left = rect.left - containerRect.left + "px";
-    }
-}
-window.addEventListener("resize", moveGlowLine);
-
-// === Theme Toggle ===
-function initTheme() {
-    const toggle = document.getElementById("theme-toggle");
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark");
-        toggle.checked = true;
-    }
-
-    toggle.addEventListener("change", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+  document.querySelectorAll(".mobile-link").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("overflow-hidden");
     });
+  });
 }
