@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru" id="html-root">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MetaCode</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/tailwind.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
 </head>
 
 <body class="bg-gray-100 text-gray-800 transition-all duration-500">
-
-  <!-- Навигация -->
   <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/60 border-b border-gray-200 shadow-sm nav-bar">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
-
-        <!-- Логотип -->
         <div class="text-xl font-bold tracking-wide logo-text">MetaCode</div>
 
-        <!-- Центрированное меню -->
         <div class="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex space-x-4" id="menu">
           <a href="/" class="nav-btn {% if request.url.path == '/' %}active{% endif %}">Главная</a>
           <a href="/section/programming" class="nav-btn {% if '/section/programming' in request.url.path %}active{% endif %}">Программирование</a>
@@ -28,26 +24,22 @@
           <a href="/section/dev" class="nav-btn {% if '/section/dev' in request.url.path %}active{% endif %}">Разработка</a>
         </div>
 
-        <!-- Тумблер темы + бургер -->
         <div class="flex items-center justify-end space-x-3">
           <label for="theme-toggle" class="flex items-center cursor-pointer">
             <span class="text-sm text-yellow-400 mr-1">🌞</span>
-            <input type="checkbox" id="theme-toggle" class="sr-only" />
+            <input type="checkbox" id="theme-toggle" class="sr-only">
             <div class="toggle-bg w-10 h-5 bg-gray-400 rounded-full relative">
               <span class="toggle-dot absolute top-[2px] left-[2px] w-4 h-4 bg-white rounded-full transition-all duration-300"></span>
             </div>
             <span class="text-sm text-blue-400 ml-1">🌙</span>
           </label>
 
-          <button id="mobile-menu-btn" class="lg:hidden text-3xl focus:outline-none transition-transform duration-300 hover:scale-110">
-            ☰
-          </button>
+          <button id="mobile-menu-btn" class="lg:hidden text-3xl hover:scale-110 transition-transform duration-300">☰</button>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Мобильное меню -->
   <div id="mobile-menu" class="mobile-menu">
     <div class="menu-content">
       <a href="/" class="mobile-link">Главная</a>
@@ -59,9 +51,13 @@
   </div>
 
   <main class="max-w-7xl mx-auto pt-24 pb-16 px-4 min-h-screen site-main transition-colors duration-500">
-    {% block content %}{% endblock %}
+    <div class="page-frame">
+      {% block content %}{% endblock %}
+    </div>
   </main>
 
   <script src="/static/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </body>
 </html>
