@@ -46,24 +46,42 @@ JavaScript (main.js)	                              Тема, анимации, �
 📂 Структура проекта
 
 metacode/
+
 │
+
 ├── app/
+
 │   ├── main.py                 # Точка входа FastAPI
+
 │   ├── static/
+
 │   │   ├── css/
+
 │   │   │   ├── style.css       # Основные пользовательские стили
+
 │   │   │   └── tailwind.min.css
+
 │   │   ├── js/
+
 │   │   │   └── main.js         # Переключение темы и мобильное меню
+
 │   │   └── images/             # Изображения карточек
+
 │   │
+
 │   └── templates/
+
 │       ├── base.html           # Главный шаблон (навигация, тема)
+
 │       ├── section.html        # Отображение разделов / курсов / уроков
+
 │       └── index.html          # Главная страница
+
 │
 ├── .gitignore
+
 ├── requirements.txt
+
 └── README.md
 
 ⚙️ Установка и запуск
