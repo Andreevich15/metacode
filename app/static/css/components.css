@@ -1,0 +1,89 @@
+/* =========================================
+   ОБЩИЕ КОМПОНЕНТЫ
+========================================= */
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform: scale(0.97);
+  opacity: 0;
+  animation: fadeInCard 0.6s ease forwards;
+  animation-delay: var(--delay, 0s);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+body.dark-mode .card {
+  background-color: #27354a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .card:hover {
+  background-color: #31425c;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+  transform: translateY(-5px) scale(1.03);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.back-button:hover {
+  background-color: #1e40af;
+}
+
+body.dark-mode .back-button {
+  background-color: #3b82f6;
+}
+
+body.dark-mode .back-button:hover {
+  background-color: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .card img {
+    height: 150px;
+  }
+
+  .back-button {
+    margin-bottom: 1rem;
+  }
+}

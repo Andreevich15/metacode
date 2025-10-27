@@ -1,0 +1,128 @@
+/* =========================================
+   СТИЛИ ДЛЯ УРОКОВ И НАВИГАЦИИ ПО КОНТЕНТУ
+========================================= */
+aside .block-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+aside .block-btn:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+aside .block-btn.active,
+aside .block-btn[aria-current="true"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+  font-weight: 600;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  transform: scale(1.02);
+}
+
+aside .block-btn.active:hover {
+  background-color: #1e40af !important;
+}
+
+body.dark-mode aside .block-btn {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+body.dark-mode aside .block-btn:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+body.dark-mode aside .block-btn.active,
+body.dark-mode aside .block-btn[aria-current="true"] {
+  background-color: #3b82f6 !important;
+  border-color: #2563eb !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.lesson-content-block {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.lesson-content-block h1,
+.lesson-content-block h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.lesson-content-block p {
+  margin-bottom: 0.8rem;
+  text-align: justify;
+}
+
+.lesson-sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.lesson-sidebar .block-btn {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+}
+
+.lesson-footer-nav {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lesson-nav-btn {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.lesson-nav-btn:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+}
+
+body.dark-mode .lesson-nav-btn {
+  background-color: #3b82f6;
+}
+
+body.dark-mode .lesson-nav-btn:hover {
+  background-color: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .lesson-footer-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .lesson-nav-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}

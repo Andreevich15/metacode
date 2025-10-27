@@ -1,0 +1,126 @@
+/* =========================================
+   БАЗОВЫЕ СТИЛИ И ОФОРМЛЕНИЕ
+========================================= */
+body {
+  background-color: #f3f4f6;
+  color: #1e293b;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p,
+body.dark-mode a {
+  color: #f8fafc;
+}
+
+.page-frame {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 50px;
+  border: 2px solid #cbd5e1;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+body.dark-mode .page-frame {
+  background-color: #111827;
+  border-color: #334155;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.content-block {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .content-block {
+  background-color: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.section-enter {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+pre {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode pre {
+  background-color: #1f2937;
+  border-color: #334155;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.hljs {
+  background: transparent !important;
+  color: #1e293b;
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+body.dark-mode .hljs {
+  color: #e5e7eb;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-name {
+  color: #eb2525ff;
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-symbol {
+  color: #047857;
+}
+
+.hljs-comment {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #b91c1c;
+}
+
+@media (max-width: 768px) {
+  .page-frame {
+    padding: 24px 20px;
+  }
+}
