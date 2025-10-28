@@ -59,6 +59,42 @@ body.dark-mode aside .block-btn[aria-current="true"] {
   line-height: 1.6;
 }
 
+.lesson-content pre {
+  margin: 1.5rem 0;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 35px -24px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.lesson-content pre code {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  overflow-x: auto;
+}
+
+.lesson-content code:not([class^="language"]) {
+  background: rgba(37, 99, 235, 0.12);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+body.dark-mode .lesson-content pre {
+  background: #0b1220;
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 20px 40px -26px rgba(15, 23, 42, 0.9);
+}
+
+body.dark-mode .lesson-content code:not([class^="language"]) {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+}
+
 .lesson-content-block h1,
 .lesson-content-block h2 {
   font-size: 1.1rem;

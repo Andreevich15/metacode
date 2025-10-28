@@ -20,10 +20,16 @@ body.dark-mode a {
   color: #f8fafc;
 }
 
+.site-main {
+  max-width: 1500px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
 .page-frame {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 40px 50px;
+  padding: 36px 42px;
   border: 2px solid #cbd5e1;
   background-color: #f9fafb;
   border-radius: 10px;
@@ -120,7 +126,11 @@ body.dark-mode .hljs {
 }
 
 @media (max-width: 768px) {
+  .site-main {
+    padding-inline: 1rem;
+  }
+
   .page-frame {
-    padding: 24px 20px;
+    padding: 24px 18px;
   }
 }

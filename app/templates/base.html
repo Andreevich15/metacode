@@ -10,12 +10,15 @@
   <link rel="stylesheet" href="/static/css/navigation.css">
   <link rel="stylesheet" href="/static/css/components.css">
   <link rel="stylesheet" href="/static/css/lessons.css">
+  <link rel="stylesheet" href="/static/css/admin.css">
+  <link rel="stylesheet" href="/static/css/github.min.css" id="hljs-theme-light">
+  <link rel="stylesheet" href="/static/css/github-dark.min.css" id="hljs-theme-dark" disabled>
 
   <link rel="icon" type="image/png" href="/static/images/favicon.png">
 </head>
 
 <body class="bg-gray-100 text-gray-800 transition-all duration-500">
-  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/60 border-b border-gray-200 shadow-sm nav-bar">
+  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white border-b border-gray-200 shadow-sm nav-bar">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="text-xl font-bold tracking-wide logo-text">MetaCode</div>
@@ -38,11 +41,34 @@
             <span class="text-sm text-blue-400 ml-1">🌙</span>
           </label>
 
+          <button id="admin-login-btn" class="admin-login-trigger hidden lg:inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium">
+            Вход администратора
+          </button>
+
           <button id="mobile-menu-btn" class="lg:hidden text-3xl hover:scale-110 transition-transform duration-300">☰</button>
         </div>
       </div>
     </div>
   </nav>
+
+  <div id="admin-login-panel" class="admin-login-panel" aria-hidden="true">
+    <form class="admin-login-form" aria-label="Форма входа администратора" novalidate>
+      <h2>Вход администратора</h2>
+      <p class="text-sm text-slate-500">
+        После успешной авторизации администратор переходит в панель управления.
+      </p>
+      <label for="admin-login">Логин</label>
+      <input id="admin-login" type="text" placeholder="admin@metacode">
+      <label for="admin-password">Пароль</label>
+      <input id="admin-password" type="password" placeholder="••••••••">
+      <div class="form-actions">
+        <button type="button" class="ghost" data-close-admin>Отмена</button>
+        <button type="submit" class="admin-login-submit" disabled>Войти</button>
+      </div>
+      <p class="text-xs text-slate-400 mt-3">Для просмотра прототипа панели используйте демонстрационную ссылку.</p>
+      <a href="/admin" class="admin-login-demo" rel="nofollow">Открыть административную панель (демо)</a>
+    </form>
+  </div>
 
   <div id="mobile-menu" class="mobile-menu">
     <div class="menu-content">
@@ -51,6 +77,7 @@
       <a href="/section/design" class="mobile-link">Проектирование</a>
       <a href="/section/ai" class="mobile-link">ИИ</a>
       <a href="/section/dev" class="mobile-link">Разработка</a>
+      <button id="admin-login-mobile" class="mobile-link admin-mobile-login" type="button">Вход администратора</button>
     </div>
   </div>
 
@@ -61,7 +88,11 @@
   </main>
 
   <script src="/static/js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script src="/static/js/highlight.min.js"></script>
+  <script>
+    if (window.hljs) {
+      window.hljs.highlightAll();
+    }
+  </script>
 </body>
 </html>
