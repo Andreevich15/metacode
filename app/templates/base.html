@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="/static/css/navigation.css">
   <link rel="stylesheet" href="/static/css/components.css">
   <link rel="stylesheet" href="/static/css/lessons.css">
+  <link rel="stylesheet" href="/static/css/admin.css">
 
   <link rel="icon" type="image/png" href="/static/images/favicon.png">
 </head>
 
 <body class="bg-gray-100 text-gray-800 transition-all duration-500">
-  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/60 border-b border-gray-200 shadow-sm nav-bar">
+  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white border-b border-gray-200 shadow-sm nav-bar">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="text-xl font-bold tracking-wide logo-text">MetaCode</div>
@@ -26,6 +27,7 @@
           <a href="/section/design" class="nav-btn {% if '/section/design' in request.url.path %}active{% endif %}">Проектирование</a>
           <a href="/section/ai" class="nav-btn {% if '/section/ai' in request.url.path %}active{% endif %}">ИИ</a>
           <a href="/section/dev" class="nav-btn {% if '/section/dev' in request.url.path %}active{% endif %}">Разработка</a>
+          <a href="/admin" class="nav-btn {% if '/admin' in request.url.path %}active{% endif %}">Админка</a>
         </div>
 
         <div class="flex items-center justify-end space-x-3">
@@ -51,6 +53,7 @@
       <a href="/section/design" class="mobile-link">Проектирование</a>
       <a href="/section/ai" class="mobile-link">ИИ</a>
       <a href="/section/dev" class="mobile-link">Разработка</a>
+      <a href="/admin" class="mobile-link">Админка</a>
     </div>
   </div>
 
@@ -61,7 +64,11 @@
   </main>
 
   <script src="/static/js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script src="/static/js/highlight.min.js"></script>
+  <script>
+    if (window.hljs) {
+      window.hljs.highlightAll();
+    }
+  </script>
 </body>
 </html>

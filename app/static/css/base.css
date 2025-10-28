@@ -20,10 +20,16 @@ body.dark-mode a {
   color: #f8fafc;
 }
 
+.site-main {
+  max-width: 1500px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
 .page-frame {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 40px 50px;
+  padding: 36px 42px;
   border: 2px solid #cbd5e1;
   background-color: #f9fafb;
   border-radius: 10px;
@@ -49,52 +55,7 @@ body.dark-mode .page-frame {
 body.dark-mode .content-block {
   background-color: #1e293b;
   border-color: #334155;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.section-enter {
-  animation: fadeInUp 0.6s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-pre {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-  overflow-x: auto;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-body.dark-mode pre {
-  background-color: #1f2937;
-  border-color: #334155;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-}
-
-.hljs {
-  background: transparent !important;
-  color: #1e293b;
-  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-body.dark-mode .hljs {
-  color: #e5e7eb;
-}
-
+@@ -98,29 +104,33 @@ body.dark-mode .hljs {
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-title,
@@ -120,7 +81,11 @@ body.dark-mode .hljs {
 }
 
 @media (max-width: 768px) {
+  .site-main {
+    padding-inline: 1rem;
+  }
+
   .page-frame {
-    padding: 24px 20px;
+    padding: 24px 18px;
   }
 }

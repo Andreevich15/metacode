@@ -3,10 +3,10 @@
 ========================================= */
 .card {
   background-color: #ffffff;
-  border-radius: 1rem;
+  border-radius: 0.9rem;
   overflow: hidden;
   transition: all 0.4s ease;
-  transform: scale(0.97);
+  transform: scale(0.94);
   opacity: 0;
   animation: fadeInCard 0.6s ease forwards;
   animation-delay: var(--delay, 0s);
@@ -16,15 +16,26 @@
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 160px;
   object-fit: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.tile-grid {
+  margin-inline: auto;
+  width: min(100%, 1180px);
+  padding-inline: clamp(0.75rem, 3vw, 2.25rem);
+  justify-items: center;
+}
+
+.tile-grid > .card {
+  width: min(100%, 260px);
 }
 
 @keyframes fadeInCard {
@@ -48,7 +59,46 @@ body.dark-mode .card {
 body.dark-mode .card:hover {
   background-color: #31425c;
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.news-feed {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.news-item {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-item h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.news-item p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+body.dark-mode .news-item {
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+body.dark-mode .news-item h3 {
+  color: #e2e8f0;
+}
+
+body.dark-mode .news-item p {
+  color: rgba(148, 163, 184, 0.85);
 }
 
 .back-button {
@@ -72,18 +122,4 @@ body.dark-mode .card:hover {
 
 body.dark-mode .back-button {
   background-color: #3b82f6;
-}
-
-body.dark-mode .back-button:hover {
-  background-color: #60a5fa;
-}
-
-@media (max-width: 768px) {
-  .card img {
-    height: 150px;
-  }
-
-  .back-button {
-    margin-bottom: 1rem;
-  }
 }
